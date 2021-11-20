@@ -30,4 +30,10 @@ class EletronicCashTest {
         Assertions.assertEquals(true, amount.contains(n1));
         Assertions.assertEquals(true, amount.contains(n2));
     }
+
+    @Test
+    void whenDepositCash_havingToGiveChange_thenDepositMoney() {
+        // TODO
+    }
+
 }
