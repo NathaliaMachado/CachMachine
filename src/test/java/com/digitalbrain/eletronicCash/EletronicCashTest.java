@@ -9,6 +9,7 @@ import java.util.List;
 class EletronicCashTest {
 
     EletronicCash eletronicCash = new EletronicCash();
+    List<MoneyAmount> amount = new ArrayList<>();
 
     @Test
     void whenInitCash_havingOneCedule_thenDepositMoney() {
@@ -21,19 +22,22 @@ class EletronicCashTest {
 
     @Test
     void whenDepositCash_havingMoreThenOneCedule_thenDepositMoney() {
-        List<MoneyAmount> amount = new ArrayList<>();
-        MoneyAmount n1 = new MoneyAmount(Cedule.FIFTY, 2);
-        amount.add(n1);
-        MoneyAmount n2 = new MoneyAmount(Cedule.TEN, 1);
-        amount.add(n2);
-        eletronicCash.DepositCash(amount);
-        Assertions.assertEquals(true, amount.contains(n1));
-        Assertions.assertEquals(true, amount.contains(n2));
+
+        MoneyAmount d1 = new MoneyAmount(Cedule.FIFTY, 2);
+        amount.add(d1);
+        MoneyAmount d2 = new MoneyAmount(Cedule.TEN, 1);
+        amount.add(d2);
+        eletronicCash.depositCash(amount);
+        Assertions.assertEquals(amount, eletronicCash.getAmountList());
     }
 
     @Test
-    void whenDepositCash_havingToGiveChange_thenDepositMoney() {
-        // TODO
+    void whenDepositCash_havingToGiveChange_thenDepositMoneyAndReturnChange() {
+        //
+        MoneyAmount d1 = new MoneyAmount(Cedule.FIFTY, 1);
+        eletronicCash.depositCash(30, d1);
+        Assertions.assertEquals(amount, eletronicCash.getAmountList());
+
     }
 
 }
