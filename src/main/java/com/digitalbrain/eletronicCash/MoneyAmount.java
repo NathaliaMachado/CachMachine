@@ -1,8 +1,8 @@
 package com.digitalbrain.eletronicCash;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class MoneyAmount {
 
     private Cedule cedule;
