@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum Cedule {
+public enum MoneyBillEnum {
 
     FIVE (5),
     TEN (10),
